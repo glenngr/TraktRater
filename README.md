@@ -107,6 +107,23 @@ The [Flixster](http://www.flixster.com) provider supports movie ratings from mul
  * Select the file in the TraktRater application
  * You're now ready to import!.
  
+ ### Generic CSV File Import ###
+ The Generic CSV file provider parses a CSV file that must contain a column named ImdbId. All other columns are ignored.
+
+ * Create a Csv file if you don't have one already
+ * Create a header with at least the "ImdbId" column
+ * Paste or enter a list of imdb ids
+ * Save file
+ * Select the file in the TraktRater application
+ * You're now ready to import!.
+
+ Example file:
+
+ImdbId
+tt1825683
+tt0098354
+
+ 
 Contributing
 ------------
 
