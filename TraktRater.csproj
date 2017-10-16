@@ -60,6 +60,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\XmlExtensions.cs" />
     <Compile Include="Sites\API\iCheckMovies\ICheckMoviesListItem.cs" />
+    <Compile Include="Sites\GenericFileImport.cs" />
     <Compile Include="Sites\ICheckMovies.cs" />
     <Compile Include="Logger\FileLog.cs" />
     <Compile Include="Maintenance.cs" />

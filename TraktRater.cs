@@ -540,6 +540,7 @@
             if (AppSettings.EnableLetterboxd) sites.Add(new Letterboxd(AppSettings.LetterboxdRatingsFilename, AppSettings.LetterboxdWatchedFilename, AppSettings.LetterboxdDiaryFilename));
             if (AppSettings.EnableFlixster)   sites.Add(new Flixster(AppSettings.FlixsterUserId, AppSettings.FlixsterSyncWantToSee));
             if (AppSettings.EnableICheckMovies)   sites.Add(new ICheckMovies(AppSettings.ICheckMoviesFilename));
+            if (AppSettings.EnableGenericFileImport) sites.Add(new GenericFileImport(AppSettings.GenericImportFilename));
 
             if (!sites.Any(s => s.Enabled))
             {
@@ -948,6 +949,7 @@
             EnableImdbControls(AppSettings.EnableIMDb);
             EnableTmdbControls(AppSettings.EnableTMDb);
             EnableIcheckMoviesControls(AppSettings.EnableICheckMovies);
+            EnableGenericImportControls(AppSettings.EnableGenericFileImport);
             EnableTvdbControls(AppSettings.EnableTVDb);
             EnableListalControls(AppSettings.EnableListal);
             EnableCritickerControls(AppSettings.EnableCriticker);
@@ -957,11 +959,16 @@
 
         private void btnIcheckMoviesBrowse_Click(object sender, EventArgs e)
         {
+            BrowseForCsv(txtiCheckMoviesCsvFile);
+        }
+
+        private void BrowseForCsv(TextBox fileNameTextBox)
+        {
             dlgFileOpen.Filter = "CSV files|*.csv";
             DialogResult result = dlgFileOpen.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                txtiCheckMoviesCsvFile.Text = dlgFileOpen.FileName;
+                fileNameTextBox.Text = dlgFileOpen.FileName;
             }
         }
 
@@ -995,6 +1002,31 @@
         private void chkIcheckMoviesUpdateWatchedStatus_CheckedChanged(object sender, EventArgs e)
         {
             AppSettings.ICheckMoviesUpdateWatchedStatus = chkIcheckMoviesUpdateWatchedStatus.Checked;
+        }
+
+        private void chkGenericImportEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            AppSettings.EnableGenericFileImport = chkGenericImportEnabled.Checked;
+            EnableGenericImportControls(chkGenericImportEnabled.Checked);
+        }
+
+        private void EnableGenericImportControls(bool enabled)
+        {
+            txtGenericImportFileName.Enabled = enabled;
+            btnGenericImportFileBrowse.Enabled = enabled;
+            lblGenericImportFile.Enabled = enabled;
+            lblGenericFileImportDisclaimer.Enabled = enabled;
+        }
+
+        private void btnGenericImportFileBrowse_Click(object sender, EventArgs e)
+        {
+            BrowseForCsv(txtGenericImportFileName);
+        }
+
+
+        private void txtGenericImportFileName_TextChanged(object sender, EventArgs e)
+        {
+            AppSettings.GenericImportFilename = txtGenericImportFileName.Text;
         }
 
         #endregion

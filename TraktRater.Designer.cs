@@ -59,6 +59,7 @@
             this.nudBatchSize = new System.Windows.Forms.NumericUpDown();
             this.txtLetterboxdDiaryFile = new System.Windows.Forms.TextBox();
             this.txtiCheckMoviesCsvFile = new System.Windows.Forms.TextBox();
+            this.txtGenericImportFileName = new System.Windows.Forms.TextBox();
             this.txtLetterboxdRatingsFile = new System.Windows.Forms.TextBox();
             this.txtLetterboxdWatchedFile = new System.Windows.Forms.TextBox();
             this.grbImdb = new System.Windows.Forms.GroupBox();
@@ -125,7 +126,6 @@
             this.lblFlisterUserId = new System.Windows.Forms.Label();
             this.txtFlixsterUserId = new System.Windows.Forms.TextBox();
             this.chkFlixsterEnabled = new System.Windows.Forms.CheckBox();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.grbICheckMovies = new System.Windows.Forms.GroupBox();
             this.chkIcheckMoviesUpdateWatchedStatus = new System.Windows.Forms.CheckBox();
@@ -133,6 +133,13 @@
             this.chkIcheckMoviesEnabled = new System.Windows.Forms.CheckBox();
             this.btnIcheckMoviesExportBrowse = new System.Windows.Forms.Button();
             this.lblIcheckMoviesFile = new System.Windows.Forms.Label();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblGenericFileImportDisclaimer = new System.Windows.Forms.Label();
+            this.chkGenericImportEnabled = new System.Windows.Forms.CheckBox();
+            this.btnGenericImportFileBrowse = new System.Windows.Forms.Button();
+            this.lblGenericImportFile = new System.Windows.Forms.Label();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
             this.grbTrakt.SuspendLayout();
             this.grbTVDb.SuspendLayout();
             this.grbReport.SuspendLayout();
@@ -153,9 +160,11 @@
             this.grbLetterboxd.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.grbFlixster.SuspendLayout();
-            this.tabPage10.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.grbICheckMovies.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage11.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbTrakt
@@ -511,6 +520,20 @@
             this.tipHelp.SetToolTip(this.txtiCheckMoviesCsvFile, "Leave field blank if you\'re not interested in importing a watchlist from IMDb to " +
         "trakt.tv.");
             this.txtiCheckMoviesCsvFile.TextChanged += new System.EventHandler(this.txtiCheckMoviesCsvFile_TextChanged);
+            // 
+            // txtGenericImportFileName
+            // 
+            this.txtGenericImportFileName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtGenericImportFileName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
+            this.txtGenericImportFileName.Enabled = false;
+            this.txtGenericImportFileName.Location = new System.Drawing.Point(34, 93);
+            this.txtGenericImportFileName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGenericImportFileName.Name = "txtGenericImportFileName";
+            this.txtGenericImportFileName.Size = new System.Drawing.Size(276, 22);
+            this.txtGenericImportFileName.TabIndex = 7;
+            this.tipHelp.SetToolTip(this.txtGenericImportFileName, "Leave field blank if you\'re not interested in importing a watchlist from IMDb to " +
+        "trakt.tv.");
+            this.txtGenericImportFileName.TextChanged += new System.EventHandler(this.txtGenericImportFileName_TextChanged);
             // 
             // txtLetterboxdRatingsFile
             // 
@@ -1032,6 +1055,7 @@
             this.tabTraktRater.Controls.Add(this.tabPage6);
             this.tabTraktRater.Controls.Add(this.tabPage9);
             this.tabTraktRater.Controls.Add(this.tabPage10);
+            this.tabTraktRater.Controls.Add(this.tabPage11);
             this.tabTraktRater.Location = new System.Drawing.Point(5, 16);
             this.tabTraktRater.Margin = new System.Windows.Forms.Padding(4);
             this.tabTraktRater.Name = "tabTraktRater";
@@ -1307,18 +1331,6 @@
             this.chkFlixsterEnabled.UseVisualStyleBackColor = true;
             this.chkFlixsterEnabled.CheckedChanged += new System.EventHandler(this.chkFlixsterEnabled_CheckedChanged);
             // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.grbOptions);
-            this.tabPage10.Location = new System.Drawing.Point(4, 25);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage10.Size = new System.Drawing.Size(1175, 607);
-            this.tabPage10.TabIndex = 10;
-            this.tabPage10.Text = "Options";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.grbICheckMovies);
@@ -1406,6 +1418,90 @@
             this.lblIcheckMoviesFile.TabIndex = 6;
             this.lblIcheckMoviesFile.Text = "Watchlist File or List:";
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.groupBox1);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(1175, 607);
+            this.tabPage10.TabIndex = 11;
+            this.tabPage10.Text = "Generic Csv Import";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblGenericFileImportDisclaimer);
+            this.groupBox1.Controls.Add(this.chkGenericImportEnabled);
+            this.groupBox1.Controls.Add(this.btnGenericImportFileBrowse);
+            this.groupBox1.Controls.Add(this.txtGenericImportFileName);
+            this.groupBox1.Controls.Add(this.lblGenericImportFile);
+            this.groupBox1.Location = new System.Drawing.Point(9, 7);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 593);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Generic import";
+            // 
+            // lblGenericFileImportDisclaimer
+            // 
+            this.lblGenericFileImportDisclaimer.Enabled = false;
+            this.lblGenericFileImportDisclaimer.Location = new System.Drawing.Point(34, 162);
+            this.lblGenericFileImportDisclaimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGenericFileImportDisclaimer.Name = "lblGenericFileImportDisclaimer";
+            this.lblGenericFileImportDisclaimer.Size = new System.Drawing.Size(360, 111);
+            this.lblGenericFileImportDisclaimer.TabIndex = 9;
+            this.lblGenericFileImportDisclaimer.Text = resources.GetString("lblGenericFileImportDisclaimer.Text");
+            // 
+            // chkGenericImportEnabled
+            // 
+            this.chkGenericImportEnabled.AutoSize = true;
+            this.chkGenericImportEnabled.Location = new System.Drawing.Point(25, 23);
+            this.chkGenericImportEnabled.Margin = new System.Windows.Forms.Padding(4);
+            this.chkGenericImportEnabled.Name = "chkGenericImportEnabled";
+            this.chkGenericImportEnabled.Size = new System.Drawing.Size(82, 21);
+            this.chkGenericImportEnabled.TabIndex = 0;
+            this.chkGenericImportEnabled.Text = "Enabled";
+            this.chkGenericImportEnabled.UseVisualStyleBackColor = true;
+            this.chkGenericImportEnabled.CheckedChanged += new System.EventHandler(this.chkGenericImportEnabled_CheckedChanged);
+            // 
+            // btnGenericImportFileBrowse
+            // 
+            this.btnGenericImportFileBrowse.Enabled = false;
+            this.btnGenericImportFileBrowse.Location = new System.Drawing.Point(321, 90);
+            this.btnGenericImportFileBrowse.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenericImportFileBrowse.Name = "btnGenericImportFileBrowse";
+            this.btnGenericImportFileBrowse.Size = new System.Drawing.Size(37, 28);
+            this.btnGenericImportFileBrowse.TabIndex = 8;
+            this.btnGenericImportFileBrowse.Text = "...";
+            this.btnGenericImportFileBrowse.UseVisualStyleBackColor = true;
+            this.btnGenericImportFileBrowse.Click += new System.EventHandler(this.btnGenericImportFileBrowse_Click);
+            // 
+            // lblGenericImportFile
+            // 
+            this.lblGenericImportFile.AutoSize = true;
+            this.lblGenericImportFile.Enabled = false;
+            this.lblGenericImportFile.Location = new System.Drawing.Point(34, 71);
+            this.lblGenericImportFile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGenericImportFile.Name = "lblGenericImportFile";
+            this.lblGenericImportFile.Size = new System.Drawing.Size(65, 17);
+            this.lblGenericImportFile.TabIndex = 6;
+            this.lblGenericImportFile.Text = "CSV File:";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.grbOptions);
+            this.tabPage11.Location = new System.Drawing.Point(4, 25);
+            this.tabPage11.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage11.Size = new System.Drawing.Size(1175, 607);
+            this.tabPage11.TabIndex = 10;
+            this.tabPage11.Text = "Options";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
             // TraktRater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1452,10 +1548,13 @@
             this.tabPage6.ResumeLayout(false);
             this.grbFlixster.ResumeLayout(false);
             this.grbFlixster.PerformLayout();
-            this.tabPage10.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.grbICheckMovies.ResumeLayout(false);
             this.grbICheckMovies.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1533,7 +1632,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.GroupBox grbLetterboxd;
         private System.Windows.Forms.Label lblLetterboxdWatched;
         private System.Windows.Forms.Button btnLetterboxdWatchedBrowse;
@@ -1565,6 +1664,13 @@
         private System.Windows.Forms.Label lblIcheckMoviesFile;
         private System.Windows.Forms.CheckBox chkIcheckMoviesAddWatchedToWatchlist;
         private System.Windows.Forms.CheckBox chkIcheckMoviesUpdateWatchedStatus;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chkGenericImportEnabled;
+        private System.Windows.Forms.Button btnGenericImportFileBrowse;
+        private System.Windows.Forms.TextBox txtGenericImportFileName;
+        private System.Windows.Forms.Label lblGenericImportFile;
+        private System.Windows.Forms.Label lblGenericFileImportDisclaimer;
     }
 }
 

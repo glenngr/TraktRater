@@ -120,9 +120,6 @@
   <metadata name="tipHelp.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="tipHelp.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="txtImdbWebUsername.ToolTip" xml:space="preserve">
     <value>Your IMDb User ID starts with 'ur', you can get this from the IMDb website from the address bar when in your profile.
 
@@ -131,6 +128,9 @@ This option only works for profiles marked as 'Public'. Private profiles should 
   <metadata name="dlgFileOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>108, 17</value>
   </metadata>
+  <data name="lblGenericFileImportDisclaimer.Text" xml:space="preserve">
+    <value>The CSV file must contain an ImdbId column. That's the only column that will be used to import. Other columns will be ignored. If you have a flat file of only imdb ids, just make sure the first line is ImdbId and the following lines are the imdb ids, one on each line.</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>46</value>
   </metadata>
